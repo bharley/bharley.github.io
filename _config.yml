@@ -11,6 +11,9 @@ paginate_path: "page/:num"
 sass:
   style: :compressed
 
+gems:
+  - jekyll-redirect-from
+
 defaults:
   -
     scope:

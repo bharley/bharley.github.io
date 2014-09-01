@@ -16,6 +16,8 @@ author:
   display_name: Blake
   first_name: Blake
   last_name: Harley
+redirect_from:
+  - /2014/08/markdown-medawiki-extension/
 ---
 
 When it came time to get a wiki running at work to document several projects, Mediawiki
