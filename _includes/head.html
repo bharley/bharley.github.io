@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      {% if post.title %}{{ post.title }} - {% endif %}
+      {% if page.title %}{{ page.title }} - {% endif %}
+      {{ site.title }}
+    </title>
+
+    <!-- Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet" type="text/css">
+    <!-- Site CSS -->
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="mobile-header visible-xs-block">
+      <div class="img-cover img-circle"></div>
+      <a class="site-title" href="/">{{ site.title }}</a>
+    </div>
+
+    <div class="col-sm-3 hidden-xs header">
+      <div class="site-details">
+        <div class="img-cover img-circle"></div>
+        <a class="site-title" href="/">{{ site.title }}</a>
+        <ul class="badges">
+          <li><a href="https://github.com/bharley"><i class="fa fa-github-square"></i> bharley</a></li>
+        </ul>
+        <p class="description">
+          Programmer, tinkerer, gamer and technology enthusiast
+        </p>
+      </div>
+    </div>
+
+    <div class="col-sm-9 col-sm-offset-3 content">

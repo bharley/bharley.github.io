@@ -1,0 +1,26 @@
+---
+layout: post
+title: New Website
+date: 2011-04-08 21:42:24.000000000 -05:00
+categories:
+- General
+tags:
+- new
+- website
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+author:
+  login: Blake
+  email: contact@blakeharley.com
+  display_name: Blake
+  first_name: Blake
+  last_name: Harley
+---
+<p>As you may (or may not) be able to tell, I have redesigned my website. Again. If I were a counting man, that would make this website number thirty-two. 32? That's a lot.</p>
+<p>Unlike my older redesigns, I also went through and completely redesigned the backend software to my website. Using the things I've learned in my short time professionally developing websites, I've vastly improved the usability and security of my website/blog/beast. Security was a large improvement over my last website. Although, it's easy to improve over something with the security of a bead door. While working with websites on a daily basis, I learned to love parameterized SQL statements. I'm using PDO, and I'm using parameterized statements everywhere that gets passed variables—even variables from my own database. I've also overhauled the accounts backend used for the admin panel. While I don't have a user system (yet), I applied newer cryptography functions to the passwords hashed in the database. I also make use of salts now.</p>
+<p>Security isn't the only thing I've improved in my website. I've also re-made the template from the ground up using HTML5 and CSS3. Chrome, Safari and Firefox work for the most part. Internet Explorer 8 and below <em>work</em>—but not very well. I may tweak the design here in the future to make it a more pleasant experience in IE8 and below, but that's not very high on my to-do list. Especially since <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home">Internet Explorer 9 is out now</a>, and it's <em>actually not that bad</em>. I'll still stick to Chrome though. I've noticed that Firefox has a very small issue. Submit buttons are 2 pixels taller than they are in <strong>every other browser</strong>. I even tried to explicitly set the height, and Firefox still wasn't feeling up to snuff.</p>
+<p>On a related note, my older blog entries were hastily tossed into the new database. They don't work very well with the new template. I may fix that. Or not. They still function.</p>
+<p>I still have a few things to fix up before I move on to blogging about <span style="text-decoration: line-through;">useless</span> completely useful things. Namely, the tagging system needs to be optimized. (Using LIKE to find tags is slow and just plain silly.)</p>

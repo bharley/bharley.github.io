@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<article>
+  <header>
+    <h1>{{ page.title }}</h1>
+    <div class="meta">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <i class="fa fa-clock-o"></i> {{ page.date | date: "%B %-d, %Y" }}
+        </div>
+        <div class="col-ms-6 hidden-xs comments">
+          <a href="#disqus_thread" title="Comment on {{ page.title }}"><i class="fa fa-comments"></i> Leave a comment</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  {{ content }}
+
+</article>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'blakeharley';
+  var disqus_identifier = '{{ page.url | replace:"'","\\'" }}';
+  var disqus_title = '{{ page.title | replace:"'","\\'" }}';
+
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>

@@ -1,0 +1,60 @@
+---
+layout: post
+title: 'BlakeTV: Version 2'
+date: 2011-07-28 17:18:39.000000000 -05:00
+categories:
+- BlakeTV
+tags:
+- blaketv
+- bugfix
+- projects
+- tv
+- update
+- zend
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+author:
+  login: Blake
+  email: contact@blakeharley.com
+  display_name: Blake
+  first_name: Blake
+  last_name: Harley
+---
+<p>In a rather stunning turn of events, I have managed to completely rewrite BlakeTV in under 3 days. After professing my love of <a title="Frameworks and HTML5" href="http://www.blakeharley.com/2011/06/frameworks-and-html5/">frameworks</a>, I decided that it was time to start using them in my personal projects more often. Specifically, Zend Framework. Transferring and fixing up an old project seemed like the best way to focus on the setup of Zend Framework and less on the project itself. Which is not to say I didn't put any effort into the rewriting of BlakeTV---because I did. Besides a massive amount of bug squashing, the core API code didn't change a whole lot. This allowed me to focus on creating a personal Zend Framework toolset that can I can use between all of my Zend Framework projects in the future.</p>
+<p>In addition to moving over to Zend Framework, I'm going to start logging all major and some minor changes to BlakeTV. I'll also be tracking a rough version number.</p>
+<p><a href="http://tv.blakeharley.com"><img class=" alignright" title="BlakeTV" src="assets/blaketv.png" alt="BlakeTV" width="144" height="36" /></a></p>
+<h2>Changelog (v2.0.11)</h2>
+<p><strong>New Features:</strong></p>
+<ul>
+<li>Timezone settings</li>
+<li>Password and email address changing</li>
+<li>Account recovery</li>
+<li>The "All Shows" page will distinguish between shows you're personally following and things everyone else is following</li>
+</ul>
+<p><strong>Changes:</strong></p>
+<ul>
+<li>New website design</li>
+<li>Password hashing has changed from MD5 to SHA2---all old accounts will need to reset their password to gain access again</li>
+<li>Admin back-end has been completely redesigned</li>
+<li>Removed "TBA" and "Season x, Epsiode y" from episode names because... they're not episode names</li>
+<li>Time to air is shown in minutes if the show airs in less than 2 hours</li>
+</ul>
+<p><strong>Bugfixes:</strong></p>
+<ul>
+<li>Logical error was causing shows to appear in the wrong time category</li>
+<li>Inaccuracies in time calculations</li>
+</ul>
+<p><strong>Planned Future Additions:</strong></p>
+<ul>
+<li>RSS Feeds</li>
+<li>Faster TV show searching (current search queries an external server---will change to an on-site database)</li>
+<li>Categorize your shows</li>
+<li>Notifications (Txt, Twitter, ...)</li>
+<li>Time display settings</li>
+</ul>
+<p>Now that I've spent all this time and effort updating BlakeTV, you should <a href="http://tv.blakeharley.com/auth/create">sign up</a> for an account and use it.</p>
+<p>Do it.</p>
+<p>If you have any questions, comments, suggestions or find any problems with BlakeTV, please leave a comment here.</p>

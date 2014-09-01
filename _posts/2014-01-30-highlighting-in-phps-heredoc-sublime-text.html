@@ -1,0 +1,83 @@
+---
+layout: post
+title: Highlighting in PHP's Heredoc (Sublime Text)
+date: 2014-01-30 15:59:10.000000000 -06:00
+categories:
+- Programming
+tags:
+- how to
+- php
+- programming
+- sublime text
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+author:
+  login: Blake
+  email: contact@blakeharley.com
+  display_name: Blake
+  first_name: Blake
+  last_name: Harley
+---
+<p>I'm an avid fan of <a href="http://www.sublimetext.com/">Sublime Text</a>. I use it whenever I work with a scripting language (and sometimes even C++). It's snappy, has oodles of plugins and the Goto Anything feature is absolutely fantastic.</p>
+<p>One nifty thing about Sublime is that it applies syntax highlighting to <a href="http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.heredoc">Heredocs</a>. However, this is limited to JavaScript, SQL and CSS by default. Thankfully this is easy to expand upon.</p>
+<p><!--more--></p>
+<p>For this example, let's add support for <a href="http://coffeescript.org/">CoffeeSCript</a> in PHP's Heredoc. You'll need a language definition for the language you want to add, so I'll be installing the <a href="https://github.com/aponxi/sublime-better-coffeescript">Better CoffeeScript</a> plugin for the language definitions.</p>
+<p>The first thing we want to do is find Sublime's <code>PHP.sublime-package</code> file. In OS X, this should be located in <code>/Applications/Sublime Text.app/Contents/MacOS/Packages</code> (sorry Windows and Linux users, you'll have to find this yourselves). Copy this file to somewhere you feel comfortable working. Sublime's <code>.sublime-package</code> files are just zip files, so use your favorite program to unzip the contents of that package. We're interested in the <code>PHP.tmLanguage</code> file, so feel free to delete everything else.</p>
+<p>Now open up that <code>PHP.tmLanguage</code> in your favorite text editor (Sublime, I hope). Around line <b>749</b> you should see:</p>
+<pre>&lt;string&gt;^((HTML|XML|SQL|JAVASCRIPT|JSON|CSS)|)\b&lt;/string&gt;</pre>
+<p>Here is where we want to add our language. After <code>CSS</code>, add <code>|COFFEESCRIPT|CS</code> (<i><b>Bonus:</b> we'll also add <code>|JS</code> here in order to have a shortcut for highlighting JavaScript in Heredocs</i>).</p>
+<p>Sublime will now take notice of Heredoc's named <code>COFFEESCRIPT</code> and <code>CS</code>, but it won't know what to do with them yet. To fix this, we need to add a handler for this. After the JavaScript definition (around line <b>967</b>) add this:</p>
+<pre>
+&lt;dict&gt;
+	&lt;key&gt;begin&lt;/key&gt;
+	&lt;string&gt;(&lt;&lt;&lt;)\s*(COFFEESCRIPT|CS)\s*$\n?&lt;/string&gt;
+	&lt;key&gt;beginCaptures&lt;/key&gt;
+	&lt;dict&gt;
+		&lt;key&gt;0&lt;/key&gt;
+		&lt;dict&gt;
+			&lt;key&gt;name&lt;/key&gt;
+			&lt;string&gt;punctuation.section.embedded.begin.php&lt;/string&gt;
+		&lt;/dict&gt;
+		&lt;key&gt;1&lt;/key&gt;
+		&lt;dict&gt;
+			&lt;key&gt;name&lt;/key&gt;
+			&lt;string&gt;punctuation.definition.string.php&lt;/string&gt;
+		&lt;/dict&gt;
+		&lt;key&gt;2&lt;/key&gt;
+		&lt;dict&gt;
+			&lt;key&gt;name&lt;/key&gt;
+			&lt;string&gt;keyword.operator.heredoc.php&lt;/string&gt;
+		&lt;/dict&gt;
+	&lt;/dict&gt;
+	&lt;key&gt;contentName&lt;/key&gt;
+	&lt;string&gt;source.coffee&lt;/string&gt;
+	&lt;key&gt;end&lt;/key&gt;
+	&lt;string&gt;(?=^\b)&lt;/string&gt;
+	&lt;key&gt;name&lt;/key&gt;
+	&lt;string&gt;meta.embedded.coffee&lt;/string&gt;
+	&lt;key&gt;patterns&lt;/key&gt;
+	&lt;array&gt;
+		&lt;dict&gt;
+			&lt;key&gt;include&lt;/key&gt;
+			&lt;string&gt;source.coffee&lt;/string&gt;
+		&lt;/dict&gt;
+		&lt;dict&gt;
+			&lt;key&gt;include&lt;/key&gt;
+			&lt;string&gt;#interpolation&lt;/string&gt;
+		&lt;/dict&gt;
+	&lt;/array&gt;
+&lt;/dict&gt;
+</pre>
+<p>(<i><b>Bonus:</b> If you've been following the bonus section, you're going to want to add <code>|JS</code> after <code>JAVASCRIPT</code> around line <b>931</b></i>.)</p>
+<p>Finally, save this file and move it into your <b>User</b> package. If you don't know where this is, you can find it by going to <b>Preferences &rarr; Browse Packages...</b>.</p>
+<p>Now re-open Sublime and give it a try! You should see things like</p>
+<pre>
+$coffee = &lt;&lt;&lt;CS
+	$ ->
+		console.log "Hello, world!"
+CS;
+</pre>
+<p>with syntax highlighting! Furthermore, you should have a nice shortcut for highlighting JavaScript.</p>

@@ -1,0 +1,29 @@
+---
+layout: post
+title: BattlelogApi v1.3
+date: 2011-10-27 17:31:27.000000000 -05:00
+categories:
+- Projects
+tags:
+- battlelog
+- battlelogapi
+- bf3
+- php
+- programming
+- projects
+- update
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+author:
+  login: Blake
+  email: contact@blakeharley.com
+  display_name: Blake
+  first_name: Blake
+  last_name: Harley
+---
+<p>This is probably the biggest update to the API since it was introduced. Scratch that, this <strong>is</strong> the biggest update. Most of the changes have been structural. I have created several classes for different content types, split classes into their own files and created a proper class hierarchy. As far as usable features, I added award information (ribbons and medals) and server information. An unfortunate side effect of the cached language file (used for ribbons, medals, etc) is that the size of the API has increased from 5KB to 153KB (zipped sizes), but I think a larger file size is better than querying Battlelog for the language file every time (though the API allows you to so that too, albeit experimentally).</p>
+<p>Hit up the <a title="BattlelogApi" href="http://www.blakeharley.com/projects/battlelogapi/">project page</a> for more information and the download link. Let me know if there are any issues with this release.</p>
+<p><strong>Small warning:</strong> When getting friends data (by invoking <code>$soldier['friends']</code>), note that the ID is <strong>not</strong> the nine-digit soldier ID. It is the main Battlelog user ID. I will be working on a way to remedy this situation if possible.</p>

@@ -1,0 +1,19 @@
+title: "Blake Harley"
+timezone: America/Chicago
+encoding: utf-8
+markdown: redcarpet
+
+permalink: /:year/:month/:title
+
+paginate: 5
+paginate_path: "page/:num"
+
+sass:
+  style: :compressed
+
+defaults:
+  -
+    scope:
+      path: "" # empty string for all files
+    values:
+      layout: "default"

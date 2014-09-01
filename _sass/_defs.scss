@@ -1,0 +1,41 @@
+
+/* Mixins */
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+      -ms-#{$name}: #{$argument};
+     -moz-#{$name}: #{$argument};
+       -o-#{$name}: #{$argument};
+          #{$name}: #{$argument};
+}
+
+@mixin link($hover: true) {
+    @if $hover {
+        &,
+        &:link,
+        &:hover,
+        &:visited,
+        &:active {
+            @content;
+        }
+    } @else {
+        &,
+        &:link,
+        &:visited,
+        &:active {
+            @content;
+        }   
+    }
+}
+
+@mixin display-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+/* Variables */
+$headerBackColor: #354458;
+$baseColor: #333;
+$titleFont: Loto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
